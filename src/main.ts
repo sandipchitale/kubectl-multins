@@ -4,9 +4,7 @@ import minimist from 'minimist';
 import * as path from 'path'
 import * as fs from 'fs'
 import * as os from 'os'
-import * as zlib from 'zlib';
 import * as child_process from 'child_process';
-
 
 (async () => {
     const multinsUsage = `
