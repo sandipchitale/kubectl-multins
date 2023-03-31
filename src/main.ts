@@ -8,17 +8,23 @@ import * as child_process from 'child_process';
 
 (async () => {
     const multinsUsage = `
-kubectl multins --code --namespaces NAMESPACE1,NAMESPACE1 ....
+kubectl multins [--help] | [--code] [--namespaces NAMESPACE1,NAMESPACE1] ....
 
 comma separated (no space before or after commas) set of some of these options all, hooks, manifest, notes, values, templates
 
 --code option specifies to use VSCode to show the output
+--help show this help
 
 TIP: To avoid passing --namespaces parameter every time, you can set an environment variable MULTINS_NAMESPACES with the comma separated list of namespaces you want to use.
 `;
 
     let rest = process.argv.slice(2);
     let optsAndCommands = minimist(rest);
+
+    if (optsAndCommands.help) {
+        console.log(multinsUsage);
+        return;
+    }
 
     const code = optsAndCommands.code || false;
 
@@ -32,6 +38,7 @@ TIP: To avoid passing --namespaces parameter every time, you can set an environm
     if (namespaces) {
         namespaces = namespaces.split(',');
     } else {
+        console.log(multinsUsage);
         return;
     }
 

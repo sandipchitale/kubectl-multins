@@ -1,6 +1,6 @@
 {
   "name": "kubectl-multins",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Kubectl plugin to run get command over multiple namespaces.",
   "license": "SEE LICENSE IN LICENCE",
   "main": "out/main.js",
