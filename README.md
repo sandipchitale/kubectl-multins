@@ -12,6 +12,8 @@ comma separated (no space before or after commas) set of some of these options a
 
 --code option specifies to use VSCode to show the output
 
+TIP: To avoid passing --namespaces parameter every time, you can set an environment variable MULTINS_NAMESPACES with the comma separated list of namespaces you want to use.
+
 ## Building
 
 ```

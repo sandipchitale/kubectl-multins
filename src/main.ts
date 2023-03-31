@@ -13,6 +13,8 @@ kubectl multins --code --namespaces NAMESPACE1,NAMESPACE1 ....
 comma separated (no space before or after commas) set of some of these options all, hooks, manifest, notes, values, templates
 
 --code option specifies to use VSCode to show the output
+
+TIP: To avoid passing --namespaces parameter every time, you can set an environment variable MULTINS_NAMESPACES with the comma separated list of namespaces you want to use.
 `;
 
     let rest = process.argv.slice(2);
@@ -20,7 +22,13 @@ comma separated (no space before or after commas) set of some of these options a
 
     const code = optsAndCommands.code || false;
 
-    let namespaces = optsAndCommands.namespaces;
+    let namespaces;
+    if (process.env.MULTINS_NAMESPACES) {
+        namespaces = process.env.MULTINS_NAMESPACES;
+    }
+    if (optsAndCommands.namespaces) {
+        namespaces = optsAndCommands.namespaces;
+    }
     if (namespaces) {
         namespaces = namespaces.split(',');
     } else {
