@@ -5,11 +5,12 @@ metadata:
 spec:
   version: "v0.0.1"
   homepage: https://github.com/sandipchitale/kubectl-multins
-  shortDescription: "Kubectl plugin to run helm commands including custom commands"
+  shortDescription: "Kubectl plugin to run commands on multiple namespaces"
   description: |
-    Kubectl plugin to run helm commands including custom commands like
-    get templates RELEASENAME [--revision N]
-    Other commands are passed thru to helm.
+    Kubectl plugin to run commands on multiple namespaces:
+
+    --namespaces NAMESPACE1,NAMESPACE2 get pods -o wide
+    --namespaces NAMESPACE1,NAMESPACE2 describe pods
   platforms:
   - selector:
       matchLabels:

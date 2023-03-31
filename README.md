@@ -37,5 +37,5 @@ kubectl plugin list
 Once the plugin is available on [krew-index](), install it like this:
 
 ```
-kubectl krew install helm-diff
+kubectl krew install multins
 ```
